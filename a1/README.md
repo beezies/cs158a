@@ -2,7 +2,7 @@ Assignment 1 - Client/server with variable length message
 
 How to run: 
 python3 myvlserver.py; python3 myvlclient.py (in separate terminal windows)
-In your client terminal, type in the length of the message you want to send followed by the message. (example: 10helloworld!)
+In your client terminal, type in the length of the message you want to send followed by the message. (example: 11helloworld!)
 
 The server will process the message 64 bytes at a time and send back the chunks in capitalized form.
 

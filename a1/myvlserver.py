@@ -16,8 +16,8 @@ print(f"Connection from {addr[0]}")
 
 # read first 64 bytes & extract message length
 message = cnSocket.recv(bufsize).decode()
-msglen = int(message[0:nbytesforlen])
-print(f"Message length: {msglen}")
+bytestoread = int(message[0:nbytesforlen])
+print(f"Message length: {bytestoread}")
 
 # the sentence = the message minus the length specifier 
 sentence = message[nbytesforlen:len(message)]
@@ -30,14 +30,14 @@ while True:
     sentlen = len(sentence)
     print(f"Message length sent: {sentlen}")
 
+    # bytestoread = length of message remaining
+    bytestoread -= sentlen
+    
     # only quit processing if we've read the full message length
-    if (msglen < bufsize):
+    if (bytestoread <= 0):
         break
 
     sentence = cnSocket.recv(bufsize).decode()
-
-    # msglen = length of message remaining
-    msglen -= bufsize 
 
 cnSocket.close()
 print("Connection closed.")

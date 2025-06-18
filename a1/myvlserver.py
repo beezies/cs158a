@@ -17,14 +17,15 @@ print(f"Connection from {addr[0]}")
 # read first 64 bytes & extract message length
 message = cnSocket.recv(bufsize).decode()
 msglen = int(message[0:nbytesforlen])
-sentence = message[nbytesforlen:len(message)]
 print(f"Message length: {msglen}")
 
-while True:
+# the sentence = the message minus the length specifier 
+sentence = message[nbytesforlen:len(message)]
 
+while True:
+    # capitalize and send the 64 bytes received
     capSentence = sentence.upper()
     print(f"Processed: {sentence}")
-
     cnSocket.send(capSentence.encode())
     sentlen = len(sentence)
     print(f"Message length sent: {sentlen}")
@@ -34,6 +35,8 @@ while True:
         break
 
     sentence = cnSocket.recv(bufsize).decode()
+
+    # msglen = length of message remaining
     msglen -= bufsize 
 
 cnSocket.close()

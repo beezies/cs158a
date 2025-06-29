@@ -1,4 +1,4 @@
 .DS_Store
-demo*.py
-my*.py
-*grade
+./demo*.py
+./my*.py
+./*grade

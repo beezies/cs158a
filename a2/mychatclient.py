@@ -33,5 +33,8 @@ receive_thread = threading.Thread(target=receive_messages, args=(clientSocket,))
 send_thread.start()
 receive_thread.start()
 
+send_thread.join()
+receive_thread.join()
+
 
 

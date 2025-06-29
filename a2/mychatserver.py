@@ -37,10 +37,24 @@ serverSocket.bind(('localhost', serverPort))
 serverSocket.listen(1)
 print(f"Server listening on {serverSocket.getsockname()[0]} : {serverPort}")
 
-while True:
-  # accept client connections
-  cnSocket, addr = serverSocket.accept()
-  # spawn a thread for each
-  client_thread = threading.Thread(target=client_listen, args=(cnSocket, addr))
-  client_thread.start()
+threads = []
+try:
+  while True:
+    # accept client connections
+    cnSocket, addr = serverSocket.accept()
+    # spawn a thread for each
+    client_thread = threading.Thread(target=client_listen, args=(cnSocket, addr))
+    client_thread.start()
+
+    threads.append(client_thread)
+# clean up all the threads when the server gets shut down
+except KeyboardInterrupt:
+    print("\nShutting down server...")
+
+    serverSocket.close()
+    # Join all client threads
+    for t in threads:
+        t.join()
+
+    print("Shut down complete. Bye!")
 

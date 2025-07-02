@@ -11,7 +11,7 @@ clientSocket.connect((serverName, serverPort))
 
 # take user input and send to server
 sentence = input('Input message length, followed by your lowercase sentence:\n')
-sentlen = len(sentence)
+sentlen = len(sentence) - 2
 clientSocket.send(sentence.encode())
 
 # receive the 64 byte server response
@@ -25,4 +25,4 @@ while (reclen < sentlen):
     print("From Server: ", modifiedSentence.decode())
     reclen += bufsize
 
-
+clientSocket.close()

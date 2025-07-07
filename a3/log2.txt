@@ -1,18 +1,11 @@
-Sent: uuid=53be5d49-27fc-4c45-9363-f03405085529, flag=0
-Recieved: uuid=026d2b93-cc43-4514-a3f9-d54a222a8f5b, flag=0, less
+Sent: uuid=4610d064-5a08-432c-be8f-c2c6590a68ac, flag=0
+Recieved: uuid=1010e0c1-0f1f-43a3-a768-48ac02672a9c, flag=0, less
 IGNORING
-Recieved: uuid=c40c9c9d-4dca-4bfd-950e-0bb93194518e, flag=0, greater
+Recieved: uuid=bfb239ed-8a1d-4c90-a44e-0243be1b1099, flag=0, greater
 FORWARDING
-Sent: uuid=c40c9c9d-4dca-4bfd-950e-0bb93194518e, flag=0
-Leader is decided to c40c9c9d-4dca-4bfd-950e-0bb93194518e.
-Sent: uuid=c40c9c9d-4dca-4bfd-950e-0bb93194518e, flag=1
-Leader: c40c9c9d-4dca-4bfd-950e-0bb93194518e
-Sent: uuid=21f19712-12a3-4814-8e86-5d0ec15fc838, flag=0
-Recieved: uuid=1548dacf-4b41-4321-9c6f-925bbf30b00b, flag=0, less
-IGNORING
-Recieved: uuid=e736a3ce-c64d-4893-ad3d-7830dc751eca, flag=0, greater
+Sent: uuid=bfb239ed-8a1d-4c90-a44e-0243be1b1099, flag=0
+Recieved: uuid=bfb239ed-8a1d-4c90-a44e-0243be1b1099, flag=1, greater
+Leader is decided to bfb239ed-8a1d-4c90-a44e-0243be1b1099.
 FORWARDING
-Sent: uuid=e736a3ce-c64d-4893-ad3d-7830dc751eca, flag=0
-Leader is decided to e736a3ce-c64d-4893-ad3d-7830dc751eca.
-Sent: uuid=e736a3ce-c64d-4893-ad3d-7830dc751eca, flag=1
-Leader: e736a3ce-c64d-4893-ad3d-7830dc751eca
+Sent: uuid=bfb239ed-8a1d-4c90-a44e-0243be1b1099, flag=1
+Leader: bfb239ed-8a1d-4c90-a44e-0243be1b1099

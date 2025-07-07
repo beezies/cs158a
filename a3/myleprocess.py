@@ -22,7 +22,7 @@ leader_is_me = False
 
 # logging
 logger = logging.getLogger(__name__)
-logging.basicConfig(filename='log1.txt', format='%(message)s', level=logging.INFO)
+logging.basicConfig(filename='log1.txt', format='%(message)s', filemode='w', level=logging.INFO)
 
 class Message():
 	def __init__(self, uuid, flag):
@@ -88,7 +88,9 @@ while True:
 	flag = message_dict['flag']
 
 	if (flag == 1):
+		logger.info(f"Recieved: uuid={sent_uuid}, flag={message_dict['flag']}, greater")
 		logger.info(f"Leader is decided to {sent_uuid}.")
+		logger.info("FORWARDING")
 		leader_uuid = sent_uuid
 		leader_msg =  Message(sent_uuid, 1)
 		leader_message_json = json.dumps(leader_msg.__dict__) + "\n"
@@ -101,6 +103,8 @@ while True:
 		my_client_socket.send(message_json.encode())
 		logger.info(f"Sent: uuid={sent_uuid}, flag=0")
 	elif (sent_uuid == my_uuid):
+		logger.info(f"Recieved: uuid={sent_uuid}, flag={message_dict['flag']}, equal")
+		logger.info(f"Leader is decided to {sent_uuid}.")
 		logger.info("IM LEADER!!!")
 		leader_is_me = True
 		leader_uuid = my_uuid

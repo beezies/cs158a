@@ -12,8 +12,6 @@ server_info = config.readline().strip().split(",")
 config.close()
 bufsize = 1024
 
-print(my_info)
-
 # information for this process
 my_uuid = str(uuid.uuid4())
 my_ip_name = my_info[0]

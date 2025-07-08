@@ -5,15 +5,23 @@ import json
 import time
 import logging
 
-# information for this process
-my_uuid = str(uuid.uuid4())
-my_ip_name = 'localhost'
-my_serve_port = 12002
+# config
+config = open('config2.txt', 'r')
+my_info = config.readline().strip().split(",")
+server_info = config.readline().strip().split(",")
+config.close()
 bufsize = 1024
 
+print(my_info)
+
+# information for this process
+my_uuid = str(uuid.uuid4())
+my_ip_name = my_info[0]
+my_serve_port = int(my_info[1])
+
 # information for neighbor server
-server_name = 'localhost'
-server_port = 12000
+server_name = server_info[0]
+server_port = int(server_info[1])
 connected = False
 
 # leader process to be computed
@@ -22,7 +30,7 @@ leader_is_me = False
 
 # logging
 logger = logging.getLogger(__name__)
-logging.basicConfig(filename='log3.txt', format='%(message)s', filemode='w', level=logging.INFO)
+logging.basicConfig(filename='log1.txt', format='%(message)s', filemode='w', level=logging.INFO)
 
 class Message():
 	def __init__(self, uuid, flag):

@@ -5,15 +5,23 @@ import json
 import time
 import logging
 
-# information for this process
-my_uuid = str(uuid.uuid4())
-my_ip_name = 'localhost'
-my_serve_port = 12000
+# config 
+config = open('config.txt', 'r')
+my_info = config.readline().strip().split(",")
+server_info = config.readline().strip().split(",")
+config.close()
 bufsize = 1024
 
+print(my_info)
+
+# information for this process
+my_uuid = str(uuid.uuid4())
+my_ip_name = my_info[0]
+my_serve_port = int(my_info[1])
+
 # information for neighbor server
-server_name = 'localhost'
-server_port = 12001
+server_name = server_info[0]
+server_port = int(server_info[1])
 connected = False
 
 # leader process to be computed

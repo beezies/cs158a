@@ -60,8 +60,6 @@ my_server_socket = socket(AF_INET, SOCK_STREAM)
 cn_thread = ReturningThread(target=accept_client, args=(my_server_socket,))
 cn_thread.start()
 
-# time.sleep(10)
-
 # initialize client socket & connect to neighbor server
 while (not connected):
 	try: 
@@ -70,7 +68,7 @@ while (not connected):
 		print(f"Connected to neighbor server ({server_name} : {server_port})")
 		connected = True
 	except:
-		print(f"Unable to connect to ({server_name} : {server_port}). Retrying..")
+		print(f"Server socket at ({server_name} : {server_port}) isn't ready. Retrying..")		
 		time.sleep(1)
 		continue
 

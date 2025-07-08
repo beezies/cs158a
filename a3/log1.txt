@@ -1,11 +1,8 @@
-Sent: uuid=aaead602-9b2e-45a2-9809-f4ddc306050a, flag=0
-Recieved: uuid=94142491-5169-4bcb-90c7-41376744a0bb, flag=0, less
+Sent: uuid=6d99eaa7-53d1-42c4-89cc-b45fd242ef6c, flag=0
+Recieved: uuid=187ff849-a969-4bca-8051-a5ecfb3e4486, flag=0, less
 IGNORING
-Recieved: uuid=d95f299a-5c5c-4692-8568-52cd9cd92aac, flag=0, greater
-FORWARDING
-Sent: uuid=d95f299a-5c5c-4692-8568-52cd9cd92aac, flag=0
-Recieved: uuid=d95f299a-5c5c-4692-8568-52cd9cd92aac, flag=1, greater
-Leader is decided to d95f299a-5c5c-4692-8568-52cd9cd92aac.
-FORWARDING
-Sent: uuid=d95f299a-5c5c-4692-8568-52cd9cd92aac, flag=1
-Leader: d95f299a-5c5c-4692-8568-52cd9cd92aac
+Recieved: uuid=6d99eaa7-53d1-42c4-89cc-b45fd242ef6c, flag=0, equal
+Leader is decided to 6d99eaa7-53d1-42c4-89cc-b45fd242ef6c.
+IM LEADER!!!
+Sent: uuid=6d99eaa7-53d1-42c4-89cc-b45fd242ef6c, flag=1
+Leader: 6d99eaa7-53d1-42c4-89cc-b45fd242ef6c

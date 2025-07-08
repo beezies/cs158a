@@ -125,6 +125,7 @@ logger.info(f"Leader: {leader_uuid}")
 res_msg = f"Leader is {leader_uuid} (me!!)\n" if leader_is_me else f"Leader is {leader_uuid}.\n"
 print(res_msg)
 
+sock_file.close()
 cn_socket.close()
 my_client_socket.close()
 my_server_socket.close()

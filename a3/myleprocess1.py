@@ -60,12 +60,12 @@ my_server_socket = socket(AF_INET, SOCK_STREAM)
 cn_thread = ReturningThread(target=accept_client, args=(my_server_socket,))
 cn_thread.start()
 
-time.sleep(10)
+# time.sleep(10)
 
 # initialize client socket & connect to neighbor server
-my_client_socket = socket(AF_INET, SOCK_STREAM)
 while (not connected):
 	try: 
+		my_client_socket = socket(AF_INET, SOCK_STREAM)
 		my_client_socket.connect((server_name, server_port))
 		print(f"Connected to neighbor server ({server_name} : {server_port})")
 		connected = True

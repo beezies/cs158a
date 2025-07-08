@@ -1,0 +1,11 @@
+Sent: uuid=aaead602-9b2e-45a2-9809-f4ddc306050a, flag=0
+Recieved: uuid=94142491-5169-4bcb-90c7-41376744a0bb, flag=0, less
+IGNORING
+Recieved: uuid=d95f299a-5c5c-4692-8568-52cd9cd92aac, flag=0, greater
+FORWARDING
+Sent: uuid=d95f299a-5c5c-4692-8568-52cd9cd92aac, flag=0
+Recieved: uuid=d95f299a-5c5c-4692-8568-52cd9cd92aac, flag=1, greater
+Leader is decided to d95f299a-5c5c-4692-8568-52cd9cd92aac.
+FORWARDING
+Sent: uuid=d95f299a-5c5c-4692-8568-52cd9cd92aac, flag=1
+Leader: d95f299a-5c5c-4692-8568-52cd9cd92aac

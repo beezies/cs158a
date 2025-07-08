@@ -30,7 +30,7 @@ leader_is_me = False
 
 # logging
 logger = logging.getLogger(__name__)
-logging.basicConfig(filename='log1.txt', format='%(message)s', filemode='w', level=logging.INFO)
+logging.basicConfig(filename='log3.txt', format='%(message)s', filemode='w', level=logging.INFO)
 
 class Message():
 	def __init__(self, uuid, flag):

@@ -30,11 +30,13 @@ leader_is_me = False
 logger = logging.getLogger(__name__)
 logging.basicConfig(filename='log1.txt', format='%(message)s', filemode='w', level=logging.INFO)
 
+# Message wrapper
 class Message():
 	def __init__(self, uuid, flag):
 		self.uuid = uuid
 		self.flag = flag
 
+# Thread wrapper that returns the result of target on join
 class ReturningThread(threading.Thread):
 	def __init__(self, target, args=()):
 		super().__init__(target=target, args=args)
@@ -45,6 +47,7 @@ class ReturningThread(threading.Thread):
 		super().join()
 		return self._return
 
+# function to initialize the server socket and wait for client connection
 def accept_client(server_socket):
 	server_socket.bind((my_ip_name, my_serve_port))
 	server_socket.listen(1)
@@ -84,14 +87,15 @@ sock_file = cn_socket.makefile()
 
 print("Electing leader...") 
 
-# finally, start loop of accepting client messages and forwarding them to the server
+# finally, start loop of accepting client messages and forwarding them to the server until leader is found
 while True:
 	message_json = sock_file.readline()
 	message_dict = json.loads(message_json)
 	sent_uuid = message_dict['uuid']
 	flag = message_dict['flag']
 
-	if (flag == 1):
+	# leader has been found --> forward with flag = 1 & break
+	if (flag == 1): 
 		logger.info(f"Recieved: uuid={sent_uuid}, flag={message_dict['flag']}, greater")
 		logger.info(f"Leader is decided to {sent_uuid}.")
 		logger.info("FORWARDING")
@@ -101,11 +105,15 @@ while True:
 		my_client_socket.send(leader_message_json.encode())
 		logger.info(f"Sent: uuid={sent_uuid}, flag=1")
 		break
+
+	# received uuid greater than mine --> forward with flag = 0
 	elif (sent_uuid > my_uuid):
 		logger.info(f"Recieved: uuid={sent_uuid}, flag={message_dict['flag']}, greater")
 		logger.info("FORWARDING")
 		my_client_socket.send(message_json.encode())
 		logger.info(f"Sent: uuid={sent_uuid}, flag=0")
+
+	# received uuid is mine (i am leader) --> forward with flag = 1 & break
 	elif (sent_uuid == my_uuid):
 		logger.info(f"Recieved: uuid={sent_uuid}, flag={message_dict['flag']}, equal")
 		logger.info(f"Leader is decided to {sent_uuid}.")
@@ -117,6 +125,8 @@ while True:
 		my_client_socket.send(new_message_json.encode())
 		logger.info(f"Sent: uuid={my_uuid}, flag=1")
 		break
+
+	# received uuid is less than mine --> ignore
 	else:
 		logger.info(f"Recieved: uuid={sent_uuid}, flag={message_dict['flag']}, less")
 		logger.info("IGNORING")

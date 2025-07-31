@@ -1,9 +1,0 @@
-Sent: uuid=661969f2-8a31-478b-ab5e-832d33a09718, flag=0
-Recieved: uuid=f3c9ba85-5986-4f04-b7be-38872c5d8411, flag=0, greater
-FORWARDING
-Sent: uuid=f3c9ba85-5986-4f04-b7be-38872c5d8411, flag=0
-Recieved: uuid=f3c9ba85-5986-4f04-b7be-38872c5d8411, flag=1, greater
-Leader is decided to f3c9ba85-5986-4f04-b7be-38872c5d8411.
-FORWARDING
-Sent: uuid=f3c9ba85-5986-4f04-b7be-38872c5d8411, flag=1
-Leader: f3c9ba85-5986-4f04-b7be-38872c5d8411

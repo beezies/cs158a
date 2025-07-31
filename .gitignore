@@ -2,3 +2,5 @@
 /demo*.py
 /my*.py
 /*grade
+log*.txt
+config*.txt
